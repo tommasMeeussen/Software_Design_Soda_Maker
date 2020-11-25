@@ -5,8 +5,8 @@ using System.Web;
 
 namespace Software_Design_Soda_Maker.Models
 {
-    public class Soda
+    public class Indicator
     {
-        String sodaName { get; set; }
+        bool lightStatus { get; set; }
     }
 }

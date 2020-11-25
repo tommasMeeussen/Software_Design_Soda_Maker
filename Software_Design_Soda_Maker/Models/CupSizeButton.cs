@@ -5,8 +5,8 @@ using System.Web;
 
 namespace Software_Design_Soda_Maker.Models
 {
-    public class Soda
+    public class CupSizeButton : Button
     {
-        String sodaName { get; set; }
+        String SelectedSize { get; set; }
     }
 }

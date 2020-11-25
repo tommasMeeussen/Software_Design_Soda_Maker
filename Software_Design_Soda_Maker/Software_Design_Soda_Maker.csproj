@@ -187,10 +187,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Button.cs" />
     <Compile Include="Models\Cup.cs" />
     <Compile Include="Models\CupSize.cs" />
+    <Compile Include="Models\CupSizeButton.cs" />
     <Compile Include="Models\CupStorage.cs" />
-    <Compile Include="Models\DispenseButton.cs" />
+    <Compile Include="Models\PouringButton.cs" />
+    <Compile Include="Models\Indicator.cs" />
     <Compile Include="Models\Nozzle.cs" />
     <Compile Include="Models\Soda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

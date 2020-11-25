@@ -5,8 +5,10 @@ using System.Web;
 
 namespace Software_Design_Soda_Maker.Models
 {
-    public class Soda
+    public class PouringButton : Button
     {
-        String sodaName { get; set; }
+        Soda Beverage { get; set; }
+        Indicator indicator { get; set; }
+
     }
 }

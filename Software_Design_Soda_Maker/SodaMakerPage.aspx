@@ -22,10 +22,13 @@
             <br />
             <br />
             <asp:Label ID="lblCupSize" runat="server" Text="Cup Size"></asp:Label>
+            &nbsp;
+            <asp:Label ID="lblSelectedCup" runat="server" Text="Pick One"></asp:Label>
             <br />
-            <asp:Button ID="btnSmall" runat="server" Text="Small" OnClick="btnSmall_Click" Visible="False" />
+            <asp:Button ID="btnSmall" runat="server" Text="Small" OnClick="btnSmall_Click" />
             <asp:Button ID="btnMedium" runat="server" Text="Medium" OnClick="btnMedium_Click" />
             <asp:Button ID="btnLarge" runat="server" OnClick="btnLarge_Click" Text="Large" />
+            <br />
             <br />
             <br />
             <br />

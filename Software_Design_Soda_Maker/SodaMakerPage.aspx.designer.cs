@@ -78,6 +78,15 @@ namespace Software_Design_Soda_Maker
         protected global::System.Web.UI.WebControls.Label lblCupSize;
 
         /// <summary>
+        /// lblSelectedCup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelectedCup;
+
+        /// <summary>
         /// btnSmall control.
         /// </summary>
         /// <remarks>

@@ -7,6 +7,11 @@ namespace Software_Design_Soda_Maker.Models
 {
     public class CupSizeButton : Button
     {
-        String SelectedSize { get; set; }
+        String selectedSize { get; set; }
+
+        public CupSizeButton(String size)
+        {
+            this.selectedSize = size;
+        }
     }
 }

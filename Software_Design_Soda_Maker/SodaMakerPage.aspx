@@ -31,6 +31,8 @@
             <br />
             <asp:Button ID="btnDispense" runat="server" OnClick="btnDispense_Click" Text="Dispense" />
             <br />
+            <br />
+            <br />
         </div>
     </form>
 </body>

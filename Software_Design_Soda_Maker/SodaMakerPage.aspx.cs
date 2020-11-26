@@ -10,7 +10,7 @@ namespace Software_Design_Soda_Maker
 {
     public partial class SodaMakerPage : System.Web.UI.Page
     {
-        SodaMachine sodaM = new SodaMachine(); 
+        static SodaMachine sodaM = new SodaMachine(); 
         Cup currentCup = new Cup("small");
         Cup fuck;
 

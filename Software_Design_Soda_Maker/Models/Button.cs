@@ -7,6 +7,6 @@ namespace Software_Design_Soda_Maker.Models
 {
     public class Button
     {
-        bool isClicked { get; set; }
+        public bool IsClicked { get; set; }
     }
 }

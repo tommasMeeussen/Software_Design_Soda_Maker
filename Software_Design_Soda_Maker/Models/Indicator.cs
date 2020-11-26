@@ -7,6 +7,11 @@ namespace Software_Design_Soda_Maker.Models
 {
     public class Indicator
     {
-        bool lightStatus { get; set; }
+        public bool LightStatus { get; set; }
+
+        public Indicator()
+        {
+
+        }
     }
 }

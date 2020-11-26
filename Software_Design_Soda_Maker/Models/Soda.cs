@@ -7,6 +7,11 @@ namespace Software_Design_Soda_Maker.Models
 {
     public class Soda
     {
-        String sodaName { get; set; }
+        public string SodaName { get; set; }
+
+        public Soda(string s)
+        {
+            this.SodaName = s;
+        }
     }
 }

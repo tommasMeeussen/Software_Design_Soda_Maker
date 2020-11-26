@@ -7,11 +7,20 @@ namespace Software_Design_Soda_Maker.Models
 {
     public class Cup
     {
-        public string size { get; set; }
+        public string Size { get; set; }
 
-        public Cup(String s)
+        public Cup(string s)
         {
-            this.size = s;
+            this.Size = s;
+        }
+
+        public Cup(){
+            Size = "shit";
+        }
+        
+        public void selectSize(string s)
+        {
+            Size = s;
         }
     }
 }

@@ -10,37 +10,97 @@ namespace Software_Design_Soda_Maker
 {
     public partial class SodaMakerPage : System.Web.UI.Page
     {
-        SodaMachine sodaMachine;
-        public Cup currentCup = new Cup("");
-        protected void Page_Load(object sender, EventArgs e)
+        SodaMachine sodaM; 
+        Cup currentCup = new Cup();
+        Cup fuck;
+
+        public void Page_Load(object sender, EventArgs e)
         {
-            sodaMachine = new SodaMachine();
+
+            ReadData();
+            if (sodaM == null)
+            {
+                sodaM = new SodaMachine();
+            }
+            //lblSmallCups.Text = sodaMachine.CupStorage.SmallCups.ToString();
         }
 
-        protected void btnDispense_Click(object sender, EventArgs e)
+        public void ReadData()
         {
+            //fuck = new Cup("small");
+            //currentCup = new Cup("small");
+            //sodaM = new SodaMachine();
+        }
+
+        public void takeCup()
+        {
+            sodaM.CupStorage.removeCup(sodaM.SelectedCup);
+            sodaM.SelectedCup = null;
+            sodaM.PouringButton.Indicators.LightStatus = true;
+            btnTakeCup.Visible = false;
+            btnDispense.Visible = true;
+            lblSmallCups.Text = sodaM.CupStorage.SmallCups.ToString();
+        }
+
+        public void selectCup(string cupSize)
+        {
+            //currentCup.selectSize(cupSize);
+            Cup tempCup = new Cup(cupSize);
+            sodaM.selectCup(cupSize);
+            //sodaM.SelectedCup = currentCup;
+            //sodaM.SelectedCup.selectSize(currentCup.Size);
+            lblSelectedCup.Text = sodaM.SelectedCup.Size;
+        }
+
+        public void dispense()
+        {
+            if (lblSelectedCup.Text == "Pick One")
+            {
+                lblIndicator.Text = "Cup Size Must Be Selected First";
+            }
+            else
+            {
+                lblIndicator.Text = sodaM.SelectedCup.Size;
+                sodaM.Nozzle.dispenseSoda(sodaM.Soda, sodaM.SelectedCup);
+                sodaM.PouringButton.Indicators.LightStatus = true;
+                btnTakeCup.Visible = true;
+                btnDispense.Visible = false;
+            }
+        }
+
+        public void btnDispense_Click(object sender, EventArgs e)
+        {
+            dispense();
+        }
+
+        public void btnSmall_Click(object sender, EventArgs e)
+        {
+            selectCup("small");
+        }
+
+        public void btnMedium_Click(object sender, EventArgs e)
+        {
+            selectCup("medium");
 
         }
 
-        protected void btnSmall_Click(object sender, EventArgs e)
+        public void btnLarge_Click(object sender, EventArgs e)
         {
-            currentCup.size = "small";
-            sodaMachine.selectedCup = currentCup;
-            lblSelectedCup.Text = currentCup.size;
+            selectCup("large");
+
         }
 
-        protected void btnMedium_Click(object sender, EventArgs e)
+        public void btnTakeCup_Click(object sender, EventArgs e)
         {
-            currentCup.size = "medium";
-            sodaMachine.selectedCup = currentCup;
-            lblSelectedCup.Text = currentCup.size;
+            takeCup();
+            
+
         }
 
-        protected void btnLarge_Click(object sender, EventArgs e)
+        public void Button1_Click(object sender, EventArgs e)
         {
-            currentCup.size = "Large";
-            sodaMachine.selectedCup = currentCup;
-            lblSelectedCup.Text = currentCup.size;
+            ReadData();
+
         }
     }
 }

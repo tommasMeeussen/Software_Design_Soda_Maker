@@ -10,7 +10,7 @@ namespace Software_Design_Soda_Maker
 {
     public partial class SodaMakerPage : System.Web.UI.Page
     {
-        SodaMachine sodaM = new SodaMachine(); 
+        static SodaMachine sodaM; 
         Cup currentCup = new Cup("small");
         Cup fuck;
 
@@ -20,7 +20,10 @@ namespace Software_Design_Soda_Maker
             ReadData();
             if (sodaM == null)
             {
-                //sodaM = new SodaMachine();
+                sodaM = new SodaMachine();
+                lblSmallCups.Text = sodaM.CupStorage.SmallCups.ToString();
+                lblMedCups.Text = sodaM.CupStorage.MediumCups.ToString();
+                lblLgCups.Text = sodaM.CupStorage.LargeCups.ToString();
             }
             //lblSmallCups.Text = sodaMachine.CupStorage.SmallCups.ToString();
         }
@@ -35,11 +38,24 @@ namespace Software_Design_Soda_Maker
         public void takeCup()
         {
             sodaM.CupStorage.removeCup(sodaM.SelectedCup);
-            sodaM.SelectedCup = null;
             sodaM.PouringButton.Indicators.LightStatus = true;
+            lblIndicator.Text = "";
             btnTakeCup.Visible = false;
             btnDispense.Visible = true;
-            lblSmallCups.Text = sodaM.CupStorage.SmallCups.ToString();
+            if (sodaM.SelectedCup.Size == "small")
+            {
+                lblSmallCups.Text = sodaM.CupStorage.SmallCups.ToString();
+            }
+            else if (sodaM.SelectedCup.Size == "medium")
+            {
+                lblMedCups.Text = sodaM.CupStorage.MediumCups.ToString();
+            }
+            else if (sodaM.SelectedCup.Size == "large")
+            {
+                lblLgCups.Text = sodaM.CupStorage.LargeCups.ToString();
+            }
+            sodaM.SelectedCup = null;
+            lblSelectedCup.Text = "Pick One";
         }
 
         public void selectCup(string cupSize)
@@ -50,17 +66,23 @@ namespace Software_Design_Soda_Maker
             //sodaM.SelectedCup = currentCup;
             //sodaM.SelectedCup.selectSize(currentCup.Size);
             lblSelectedCup.Text = sodaM.SelectedCup.Size;
+
         }
 
         public void dispense()
         {
-            if (lblSelectedCup.Text == "Pick One")
+            if (sodaM.SelectedCup == null)
             {
-                lblIndicator.Text = "Cup Size Must Be Selected First";
+                lblSelectedCup.Text = "Cup Size Must Be Selected First";
+            }
+            else if (sodaM.SelectedCup.Size == "small" && sodaM.CupStorage.SmallCups == 0 || sodaM.SelectedCup.Size == "medium" && sodaM.CupStorage.MediumCups == 0 || sodaM.SelectedCup.Size == "large" && sodaM.CupStorage.LargeCups == 0)
+            {
+                lblSelectedCup.Text = "Cup size unavailable, make another selection";
             }
             else
             {
-                lblIndicator.Text = sodaM.SelectedCup.Size;
+
+                lblIndicator.Text = "Cup Full";
                 sodaM.Nozzle.dispenseSoda(sodaM.Soda, sodaM.SelectedCup);
                 sodaM.PouringButton.Indicators.LightStatus = true;
                 btnTakeCup.Visible = true;
@@ -101,6 +123,24 @@ namespace Software_Design_Soda_Maker
         {
             ReadData();
 
+        }
+
+        protected void btnAddSmall_Click(object sender, EventArgs e)
+        {
+            sodaM.CupStorage.SmallCups = sodaM.CupStorage.SmallCups + 1;
+            lblSmallCups.Text = sodaM.CupStorage.SmallCups.ToString();
+        }
+
+        protected void btnAddMedium_Click(object sender, EventArgs e)
+        {
+            sodaM.CupStorage.MediumCups = sodaM.CupStorage.MediumCups + 1;
+            lblMedCups.Text = sodaM.CupStorage.MediumCups.ToString();
+        }
+
+        protected void btnAddLg_Click(object sender, EventArgs e)
+        {
+            sodaM.CupStorage.LargeCups = sodaM.CupStorage.LargeCups + 1;
+            lblLgCups.Text = sodaM.CupStorage.LargeCups.ToString();
         }
     }
 }

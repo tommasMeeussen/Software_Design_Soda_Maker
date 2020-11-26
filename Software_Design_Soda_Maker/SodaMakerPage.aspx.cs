@@ -10,17 +10,17 @@ namespace Software_Design_Soda_Maker
 {
     public partial class SodaMakerPage : System.Web.UI.Page
     {
-        SodaMachine sodaM; 
-        Cup currentCup = new Cup();
+        SodaMachine sodaM = new SodaMachine(); 
+        Cup currentCup = new Cup("small");
         Cup fuck;
 
-        public void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
 
             ReadData();
             if (sodaM == null)
             {
-                sodaM = new SodaMachine();
+                //sodaM = new SodaMachine();
             }
             //lblSmallCups.Text = sodaMachine.CupStorage.SmallCups.ToString();
         }
@@ -68,36 +68,36 @@ namespace Software_Design_Soda_Maker
             }
         }
 
-        public void btnDispense_Click(object sender, EventArgs e)
+        protected void btnDispense_Click(object sender, EventArgs e)
         {
             dispense();
         }
 
-        public void btnSmall_Click(object sender, EventArgs e)
+        protected void btnSmall_Click(object sender, EventArgs e)
         {
             selectCup("small");
         }
 
-        public void btnMedium_Click(object sender, EventArgs e)
+        protected void btnMedium_Click(object sender, EventArgs e)
         {
             selectCup("medium");
 
         }
 
-        public void btnLarge_Click(object sender, EventArgs e)
+        protected void btnLarge_Click(object sender, EventArgs e)
         {
             selectCup("large");
 
         }
 
-        public void btnTakeCup_Click(object sender, EventArgs e)
+        protected void btnTakeCup_Click(object sender, EventArgs e)
         {
             takeCup();
             
 
         }
 
-        public void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
             ReadData();
 

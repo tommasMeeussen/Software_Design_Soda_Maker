@@ -189,6 +189,7 @@
     </Compile>
     <Compile Include="Models\BoosterPump.cs" />
     <Compile Include="Models\Button.cs" />
+    <Compile Include="Models\Carbonator.cs" />
     <Compile Include="Models\ChillingPlate.cs" />
     <Compile Include="Models\CO2.cs" />
     <Compile Include="Models\CO2Regulator.cs" />

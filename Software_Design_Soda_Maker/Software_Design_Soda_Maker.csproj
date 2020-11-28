@@ -187,7 +187,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BoosterPump.cs" />
     <Compile Include="Models\Button.cs" />
+    <Compile Include="Models\Carbonator.cs" />
+    <Compile Include="Models\ChillingPlate.cs" />
+    <Compile Include="Models\CO2.cs" />
+    <Compile Include="Models\CO2Regulator.cs" />
     <Compile Include="Models\Cup.cs" />
     <Compile Include="Models\CupSize.cs" />
     <Compile Include="Models\CupSizeButton.cs" />
@@ -196,6 +201,10 @@
     <Compile Include="Models\Indicator.cs" />
     <Compile Include="Models\Nozzle.cs" />
     <Compile Include="Models\Soda.cs" />
+    <Compile Include="Models\Tank.cs" />
+    <Compile Include="Models\Water.cs" />
+    <Compile Include="Models\WaterRegulator.cs" />
+    <Compile Include="Models\WaterSupply.cs" />
     <Compile Include="Models\SodaMachine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

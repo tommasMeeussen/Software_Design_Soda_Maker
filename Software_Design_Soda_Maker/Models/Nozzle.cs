@@ -8,7 +8,7 @@ namespace Software_Design_Soda_Maker.Models
 {
     public class Nozzle
     {
-        bool pouringStatus { get; set; }
+        public bool PouringStatus { get; set; }
 
         public void dispenseSoda(Soda soda, Cup cup)
         {

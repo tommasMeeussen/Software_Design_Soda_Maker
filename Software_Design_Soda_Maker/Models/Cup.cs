@@ -8,6 +8,7 @@ namespace Software_Design_Soda_Maker.Models
     public class Cup
     {
         public string Size { get; set; }
+        public Soda Contents { get; set; }
 
         public Cup(string s)
         {
@@ -15,7 +16,7 @@ namespace Software_Design_Soda_Maker.Models
         }
 
         public Cup(){
-            Size = "shit";
+            
         }
         
         public void selectSize(string s)

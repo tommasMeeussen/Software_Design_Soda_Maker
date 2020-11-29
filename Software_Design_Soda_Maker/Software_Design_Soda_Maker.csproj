@@ -201,6 +201,8 @@
     <Compile Include="Models\Indicator.cs" />
     <Compile Include="Models\Nozzle.cs" />
     <Compile Include="Models\Soda.cs" />
+    <Compile Include="Models\Syrup.cs" />
+    <Compile Include="Models\SyrupBag.cs" />
     <Compile Include="Models\Tank.cs" />
     <Compile Include="Models\Water.cs" />
     <Compile Include="Models\WaterRegulator.cs" />

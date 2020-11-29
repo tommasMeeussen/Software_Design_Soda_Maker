@@ -22,6 +22,8 @@ namespace Software_Design_Soda_Maker.Models
         public CO2Regulator cO2Regulator { get; set; }
         public Carbonator carbonator { get; set; }
 
+        public SyrupBag syrupBag { get; set; }
+
         public SodaMachine()
         {
             this.CupStorage= new CupStorage(20, 20, 20);
@@ -29,7 +31,7 @@ namespace Software_Design_Soda_Maker.Models
             this.SmallButton = new CupSizeButton("small");
             this.MediumButton = new CupSizeButton("medium");
             this.LargeButton = new CupSizeButton("large");
-            
+            syrupBag= new SyrupBag(100);
             this.Nozzle = new Nozzle();
             this.Soda = new Soda("Coke");
 

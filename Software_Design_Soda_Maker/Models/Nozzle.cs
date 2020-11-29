@@ -12,7 +12,7 @@ namespace Software_Design_Soda_Maker.Models
 
         public void dispenseSoda(Soda soda, Cup cup)
         {
-
+            cup.Contents = soda;
         }
     }
 }

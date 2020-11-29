@@ -12,7 +12,6 @@ namespace Software_Design_Soda_Maker
     {
         static SodaMachine sodaM; 
         Cup currentCup = new Cup("small");
-        //Cup fuck;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,6 +29,8 @@ namespace Software_Design_Soda_Maker
             lblLgCups.Text = sodaM.CupStorage.LargeCups.ToString();
             lblCo2Press.Text = sodaM.tank.pressure.ToString();
             lblWaterPress.Text = sodaM.waterSupply.pressure.ToString();
+            lblSyrupLevels.Text = sodaM.syrupBag.SyrupLevel.ToString();
+
         }
 
         public void takeCup()
@@ -57,11 +58,8 @@ namespace Software_Design_Soda_Maker
 
         public void selectCup(string cupSize)
         {
-            //currentCup.selectSize(cupSize);
             Cup tempCup = new Cup(cupSize);
             sodaM.selectCup(cupSize);
-            //sodaM.SelectedCup = currentCup;
-            //sodaM.SelectedCup.selectSize(currentCup.Size);
             lblSelectedCup.Text = sodaM.SelectedCup.Size;
 
         }
@@ -76,13 +74,14 @@ namespace Software_Design_Soda_Maker
             {
                 lblSelectedCup.Text = "Cup size unavailable, make another selection";
             }
-            else if (!sodaM.carbonator.carbonateWater()) lblIndicator.Text = "Ingredients not available";
+            else if (!sodaM.carbonator.carbonateWater() || sodaM.syrupBag.SyrupLevel < 10) lblIndicator.Text = "Ingredients not available";
             else
             {
 
                 lblIndicator.Text = "Cup Full";
                 sodaM.Nozzle.dispenseSoda(sodaM.Soda, sodaM.SelectedCup);
                 sodaM.PouringButton.Indicators.LightStatus = true;
+                sodaM.syrupBag.takeSyrup();
                 btnTakeCup.Visible = true;
                 btnDispense.Visible = false;
                 ReadData();
@@ -140,6 +139,11 @@ namespace Software_Design_Soda_Maker
         {
             sodaM.CupStorage.LargeCups = sodaM.CupStorage.LargeCups + 1;
             lblLgCups.Text = sodaM.CupStorage.LargeCups.ToString();
+        }
+
+        protected void btnAddSyrup_Click(object sender, EventArgs e)
+        {
+            sodaM.syrupBag.addSyrup();
         }
     }
 }

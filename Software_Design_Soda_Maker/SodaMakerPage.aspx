@@ -69,6 +69,14 @@
             <asp:Label ID="lblCo2" runat="server" Text="CO2 Tank Pressure:"></asp:Label>
             <asp:Label ID="lblCo2Press" runat="server" Text="0"></asp:Label>
             <br />
+            <br />
+            <asp:Label ID="lblSyrupTitle" runat="server" Text="Syrup Levels: "></asp:Label>
+&nbsp;<asp:Label ID="lblSyrupLevels" runat="server" Text="0"></asp:Label>
+&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnAddSyrup" runat="server" Height="33px" Text="+" Width="35px" OnClick="btnAddSyrup_Click" />
+            <br />
+            <br />
+            <br />
         </div>
     </form>
 </body>

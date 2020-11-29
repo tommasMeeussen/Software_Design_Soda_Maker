@@ -59,8 +59,15 @@
             <asp:Button ID="btnAddLg" runat="server" Height="33px" Text="+" Width="35px" OnClick="btnAddLg_Click" />
             <br />
             <br />
+            <asp:Label ID="lblIngredients" runat="server" Text="Ingredient Storage"></asp:Label>
             <br />
             <br />
+            <asp:Label ID="lblWater" runat="server" Text="Water Source Pressure: "></asp:Label>
+            <asp:Label ID="lblWaterPress" runat="server" Text="0"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="lblCo2" runat="server" Text="CO2 Tank Pressure:"></asp:Label>
+            <asp:Label ID="lblCo2Press" runat="server" Text="0"></asp:Label>
             <br />
         </div>
     </form>

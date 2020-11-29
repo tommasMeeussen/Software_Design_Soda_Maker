@@ -16,23 +16,20 @@ namespace Software_Design_Soda_Maker
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            ReadData();
             if (sodaM == null)
             {
                 sodaM = new SodaMachine();
-                lblSmallCups.Text = sodaM.CupStorage.SmallCups.ToString();
-                lblMedCups.Text = sodaM.CupStorage.MediumCups.ToString();
-                lblLgCups.Text = sodaM.CupStorage.LargeCups.ToString();
             }
-            //lblSmallCups.Text = sodaMachine.CupStorage.SmallCups.ToString();
+            ReadData();
         }
 
         public void ReadData()
         {
-            //fuck = new Cup("small");
-            //currentCup = new Cup("small");
-            //sodaM = new SodaMachine();
+            lblSmallCups.Text = sodaM.CupStorage.SmallCups.ToString();
+            lblMedCups.Text = sodaM.CupStorage.MediumCups.ToString();
+            lblLgCups.Text = sodaM.CupStorage.LargeCups.ToString();
+            lblCo2Press.Text = sodaM.tank.pressure.ToString();
+            lblWaterPress.Text = sodaM.waterSupply.pressure.ToString();
         }
 
         public void takeCup()
@@ -79,6 +76,7 @@ namespace Software_Design_Soda_Maker
             {
                 lblSelectedCup.Text = "Cup size unavailable, make another selection";
             }
+            else if (!sodaM.carbonator.carbonateWater()) lblIndicator.Text = "Ingredients not available";
             else
             {
 
@@ -87,6 +85,7 @@ namespace Software_Design_Soda_Maker
                 sodaM.PouringButton.Indicators.LightStatus = true;
                 btnTakeCup.Visible = true;
                 btnDispense.Visible = false;
+                ReadData();
             }
         }
 

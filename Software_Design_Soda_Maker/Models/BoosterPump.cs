@@ -7,9 +7,9 @@ namespace Software_Design_Soda_Maker.Models
 {
     public class BoosterPump
     {
-        public void increasePressure(Water water)
+        public void increasePressure(Water water, int pressure)
         {
-            water.pressure -= 10;
+            water.pressure = pressure;
         }
     }
 }

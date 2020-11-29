@@ -7,9 +7,9 @@ namespace Software_Design_Soda_Maker.Models
 {
     public class ChillingPlate
     {
-        public void lowerTemperature(Water water)
+        public void lowerTemperature(Water water, int temperature)
         {
-            water.temperature -= 5;
+            water.temperature = temperature;
         }
     }
 }

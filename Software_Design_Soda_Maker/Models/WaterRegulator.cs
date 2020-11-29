@@ -32,17 +32,17 @@ namespace Software_Design_Soda_Maker.Models
 
         public void manageWaterTemp()
         {
-            while (water.temperature > tempTarget)
+            if (water.temperature > tempTarget)
             {
-                chillingPlate.lowerTemperature(water);
+                chillingPlate.lowerTemperature(water, tempTarget);
             }
         }
 
         public void manageWaterPressure()
         {
-            while (water.pressure < pressureTarget)
+            if (water.pressure < pressureTarget)
             {
-                boosterPump.increasePressure(water);
+                boosterPump.increasePressure(water, pressureTarget);
             }
         }
 

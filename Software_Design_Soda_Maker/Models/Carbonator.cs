@@ -9,7 +9,7 @@ namespace Software_Design_Soda_Maker.Models
     {
         private CO2Regulator co2Regulator;
         private WaterRegulator waterRegulator;
-        public Water water { get; private set; }
+        private Water water;
         private CO2 cO2;
 
         public Carbonator(CO2Regulator coReg, WaterRegulator waterReg)

@@ -12,7 +12,7 @@ namespace Software_Design_Soda_Maker
     {
         static SodaMachine sodaM; 
         Cup currentCup = new Cup("small");
-        Cup fuck;
+        //Cup fuck;
 
         protected void Page_Load(object sender, EventArgs e)
         {

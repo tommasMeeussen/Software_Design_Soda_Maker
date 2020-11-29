@@ -7,7 +7,7 @@ namespace Software_Design_Soda_Maker.Models
 {
     public class WaterRegulator
     {
-        private WaterSupply WaterSupply;
+        private WaterSupply waterSupply;
         public int pressureTarget { get; set; }
         public int tempTarget { get; set; }
         private BoosterPump boosterPump;
@@ -16,7 +16,7 @@ namespace Software_Design_Soda_Maker.Models
 
         public WaterRegulator(WaterSupply waterSupply)
         {
-            this.WaterSupply = waterSupply;
+            this.waterSupply = waterSupply;
 
             boosterPump = new BoosterPump();
 
@@ -25,7 +25,9 @@ namespace Software_Design_Soda_Maker.Models
 
         public Water getWater()
         {
-            return water;
+            Water temp = water;
+            water = null;
+            return temp;
         }
 
         public void manageWaterTemp()
@@ -42,6 +44,12 @@ namespace Software_Design_Soda_Maker.Models
             {
                 boosterPump.increasePressure(water);
             }
+        }
+
+        public bool refill()
+        {
+            if (water == null) water = waterSupply.provideWater();
+            return water != null;
         }
     }
 }

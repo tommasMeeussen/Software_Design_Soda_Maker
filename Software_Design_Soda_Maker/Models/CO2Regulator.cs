@@ -9,7 +9,6 @@ namespace Software_Design_Soda_Maker.Models
     {
         private Tank tank;
         public CO2 cO2 { get; private set; }
-        public int pressureTarget { get; set; }
 
         public CO2Regulator(Tank tank)
         {
@@ -18,13 +17,14 @@ namespace Software_Design_Soda_Maker.Models
 
         public CO2 getCO2()
         {
-            return cO2;
+            CO2 temp = cO2;
+            cO2 = null;
+            return temp;
         }
 
-        public bool manageCO2Pressure()
+        public bool refill()
         {
-            cO2 = tank.provideCO2();
-
+            if (cO2 == null) cO2 = tank.provideCO2();
             return cO2 != null;
         }
     }

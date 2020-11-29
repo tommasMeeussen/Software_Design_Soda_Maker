@@ -16,11 +16,27 @@ namespace Software_Design_Soda_Maker.Models
         {
             co2Regulator = coReg;
             waterRegulator = waterReg;
+            waterRegulator.pressureTarget = 1000;
+            waterRegulator.tempTarget = 5;
         }
 
-        public void carbonateWater()
+        public bool carbonateWater()
         {
+            if (co2Regulator.refill() & waterRegulator.refill())
+            {
+                waterRegulator.manageWaterPressure();
+                waterRegulator.manageWaterTemp();
 
+                water = waterRegulator.getWater();
+                cO2 = co2Regulator.getCO2();
+
+                water.isCarbonated = true;
+                cO2 = null; //garbage collector frees object from memory
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

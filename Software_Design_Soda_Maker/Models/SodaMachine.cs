@@ -16,6 +16,12 @@ namespace Software_Design_Soda_Maker.Models
         public CupSizeButton LargeButton { get; set; }
         public Cup SelectedCup { get; set; }
 
+        public WaterSupply  waterSupply { get; set; }
+        public Tank tank { get; set; }
+        public WaterRegulator waterRegulator { get; set; }
+        public CO2Regulator cO2Regulator { get; set; }
+        public Carbonator carbonator { get; set; }
+
         public SodaMachine()
         {
             this.CupStorage= new CupStorage(20, 20, 20);
@@ -27,6 +33,13 @@ namespace Software_Design_Soda_Maker.Models
             this.Nozzle = new Nozzle();
             this.Soda = new Soda("Coke");
 
+            waterSupply = new WaterSupply(100, 25);
+            tank = new Tank(100);
+
+            waterRegulator = new WaterRegulator(waterSupply);
+            cO2Regulator = new CO2Regulator(tank);
+
+            carbonator = new Carbonator(cO2Regulator, waterRegulator);
         }
 
         public void selectCup(string c)
